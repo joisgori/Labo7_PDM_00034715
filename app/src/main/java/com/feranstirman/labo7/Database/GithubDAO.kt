@@ -11,7 +11,7 @@ interface GithubDAO {
 
     //Colocas tu entidad
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(repo: GithubRepo)
+    suspend fun insert(repo: GithubRepo) //hicimos async esta función
 
     @Query("SELECT s_name FROM repos")
     fun getAllRepos():LiveData<List<GithubRepo>>
