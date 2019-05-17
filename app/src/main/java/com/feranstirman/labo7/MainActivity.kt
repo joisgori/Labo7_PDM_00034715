@@ -2,6 +2,7 @@ package com.feranstirman.labo7
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -23,8 +24,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.getAll().observe(this, Observer {
-
+        viewModel.getAll().observe(this, Observer {repos ->
+            Log.d("LISTA DE REPOS", "*****___*****")
+            for (repo in repos) {
+                Log.d("LISTA DE REPOS", repo.name)
+            }
         })
     }
 }
